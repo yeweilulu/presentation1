@@ -9,7 +9,7 @@ const knowledgeRenderCache = {
   log: ""
 };
 
-function stickScrollToBottom(element) {
+export function stickScrollToBottom(element) {
   if (!element) return;
   const syncToBottom = () => {
     element.scrollTop = element.scrollHeight;
@@ -214,11 +214,11 @@ export function renderKnowledge() {
       </div>
       <div class="knowledge-feed-list">
         ${state.knowledgeHits.length
-          ? state.knowledgeHits.slice().reverse().map((hit, index) => `
+          ? state.knowledgeHits.map((hit, index) => `
               <div class="log-item">
                 <div class="log-top">
                   <div class="log-title">${hit.title}</div>
-                  <div class="log-seq">HIT ${String(state.knowledgeHits.length - index).padStart(2, "0")}</div>
+                  <div class="log-seq">HIT ${String(index + 1).padStart(2, "0")}</div>
                 </div>
                 <div class="log-meta">${hit.meta}</div>
               </div>
@@ -264,8 +264,12 @@ export function renderKnowledge() {
 export function renderReport() {
   if (!dom.reportStream) return;
   const hasContent = dom.reportStream.querySelector(".report-section");
+  const scrollContainer = dom.reportStream.parentElement;
   if (!hasContent && !state.isWorkflowComplete && state.currentStageIndex < 5) {
     dom.reportPlaceholder.style.display = "grid";
+  }
+  if (hasContent && scrollContainer) {
+    stickScrollToBottom(scrollContainer);
   }
   dom.reportFinalBadge.classList.toggle("visible", state.isWorkflowComplete);
 }

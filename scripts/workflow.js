@@ -1,7 +1,7 @@
 import { finalReportSections, stages } from "./data.js";
 import { dom } from "./dom.js";
 import { launchTransferBurst, startMetricLoop, triggerStageBurst, updateMetrics } from "./effects.js";
-import { renderAgents, renderKnowledge, renderReport, renderStageFocus, renderTasks, renderWorkflow, updateButtons, updateStaticLabels, formatAgentNames } from "./render.js";
+import { renderAgents, renderKnowledge, renderReport, renderStageFocus, renderTasks, renderWorkflow, updateButtons, updateStaticLabels, formatAgentNames, stickScrollToBottom } from "./render.js";
 import { clearTimers, createRuntimeState, resetCoreState, state } from "./state.js";
 
 const STEP_TIME_SCALE = 0.5;
@@ -188,6 +188,7 @@ export function resetDemo() {
 
 export function startFinalReportStreaming() {
   dom.reportPlaceholder = document.getElementById("reportPlaceholder");
+  const scrollContainer = dom.reportStream?.parentElement;
   if (dom.reportPlaceholder) {
     dom.reportPlaceholder.style.display = "none";
   }
@@ -213,7 +214,7 @@ export function startFinalReportStreaming() {
       <div class="report-content typing"></div>
     `;
     dom.reportStream.appendChild(sectionEl);
-    dom.reportStream.scrollTop = dom.reportStream.scrollHeight;
+    stickScrollToBottom(scrollContainer);
 
     const contentEl = sectionEl.querySelector(".report-content");
     const chars = Array.from(section.content);
@@ -233,7 +234,7 @@ export function startFinalReportStreaming() {
         state.tokenCount += 4;
         state.confidence = Math.min(99.8, state.confidence + 0.01);
         updateMetrics();
-        dom.reportStream.scrollTop = dom.reportStream.scrollHeight;
+        stickScrollToBottom(scrollContainer);
         const timeoutId = setTimeout(type, scaledDelay(18 + Math.random() * 22));
         state.timers.push(timeoutId);
         return;
@@ -243,6 +244,7 @@ export function startFinalReportStreaming() {
       sectionEl.classList.remove("active");
       sectionEl.classList.add("completed");
       sectionEl.querySelector(".report-title span").textContent = "Completed";
+      stickScrollToBottom(scrollContainer);
       markLatestAgentLogCompleted(`${section.title} 已生成完成。`);
       sectionIndex += 1;
       const timeoutId = setTimeout(streamNextSection, scaledDelay(180));

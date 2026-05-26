@@ -1175,6 +1175,7 @@
     .agent-action-log {
       flex: 1;
       min-height: 0;
+      padding-top: 2px;
       overflow: auto;
       display: flex;
       flex-direction: column;
@@ -1550,6 +1551,7 @@
 
     .report-panel {
       position: relative;
+      min-height: 0;
       overflow: hidden;
       transition:
         transform 360ms ease,
@@ -1570,6 +1572,7 @@
     }
 
     .report-panel > .panel-body {
+      min-height: 0;
       overflow: hidden;
       max-height: 0;
       opacity: 0;
@@ -1582,16 +1585,33 @@
     }
 
     .app-shell.final-report-active .report-panel > .panel-body {
+      flex: 1 1 0;
       max-height: 1200px;
+      overflow-y: auto;
+      overflow-x: hidden;
       opacity: 1;
       padding-top: 10px;
       padding-bottom: 12px;
+      overscroll-behavior: contain;
+      scroll-behavior: smooth;
+      scrollbar-gutter: stable both-edges;
+    }
+
+    .app-shell.final-report-active .report-stream {
+      flex: 0 0 auto;
+      height: auto;
+      overflow: visible;
+      padding-right: 0;
     }
 
     .report-stream {
       flex: 1;
+      height: 100%;
       min-height: 0;
-      overflow: auto;
+      overflow-y: auto;
+      overflow-x: hidden;
+      overscroll-behavior: contain;
+      scroll-behavior: smooth;
       display: flex;
       flex-direction: column;
       gap: 10px;
