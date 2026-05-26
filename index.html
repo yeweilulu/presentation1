@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AstraConsult Agentic Intelligence</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+  <canvas id="particleCanvas"></canvas>
+  <div class="grid-overlay"></div>
+  <div class="scan-overlay"></div>
+  <div class="global-wave"></div>
+
+  <div class="app-shell" id="appShell">
+    <section class="glass-panel topbar">
+      <div class="brand-block">
+        <div class="brand-meta">
+          <span class="live-dot"></span>
+          <span>LIVE AGENT WORKFLOW DEMO</span>
+        </div>
+        <h1 class="brand-title">AstraConsult Agentic Intelligence</h1>
+        <p class="brand-subtitle">From Enterprise Context to Board-Ready Strategy</p>
+        <div class="brand-stage">
+          <span>当前阶段</span>
+          <strong id="currentStageLabel">等待上下文注入</strong>
+        </div>
+      </div>
+      <div class="metrics-grid" id="metricsGrid"></div>
+    </section>
+
+    <section class="main-grid">
+      <div class="column column-left">
+        <section class="glass-panel knowledge-panel" id="knowledgePanel">
+          <div class="panel-header">
+            <div class="panel-title-group">
+              <span class="panel-kicker">Retrieval Surface</span>
+              <h2 class="panel-title">知识检索区</h2>
+            </div>
+            <span class="panel-tag" id="knowledgeStateTag">RETRIEVAL IDLE</span>
+          </div>
+          <div class="panel-body">
+            <div class="knowledge-overview" id="knowledgeOverview"></div>
+            <div class="knowledge-tags" id="knowledgeTags"></div>
+            <div class="knowledge-log" id="knowledgeLog"></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="column column-center">
+        <section class="glass-panel workflow-panel">
+          <div class="panel-header">
+            <div class="panel-title-group">
+              <span class="panel-kicker">Workflow Command Deck</span>
+              <h2 class="panel-title">中央主工作流区域</h2>
+              <p class="panel-desc">从企业上下文吸收到最终咨询报告生成，完整展示多阶段 Agent 协作轨道。</p>
+            </div>
+            <span class="panel-tag" id="workflowStateTag">PIPELINE STANDBY</span>
+          </div>
+          <div class="panel-body">
+            <div class="stage-track-wrap" id="stageTrackWrap">
+              <svg id="workflowSvg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="workflowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#3fe7ff"></stop>
+                    <stop offset="55%" stop-color="#8fd7ff"></stop>
+                    <stop offset="100%" stop-color="#f6c46a"></stop>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="stage-track" id="stageTrack"></div>
+            </div>
+
+            <div class="panel-body workflow-lower">
+              <div class="agent-map" id="agentMap">
+                <svg id="agentSvg" viewBox="0 0 100 100" preserveAspectRatio="none"></svg>
+              </div>
+              <div class="agent-action" id="agentAction"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="column column-right">
+        <section class="glass-panel context-panel">
+          <div class="panel-header">
+            <div class="panel-title-group">
+              <span class="panel-kicker">Enterprise Context</span>
+              <h2 class="panel-title">企业信息输入区</h2>
+              <p class="panel-desc">输入企业背景与咨询目标，前端模拟 Agent 系统吸收上下文、建立企业咨询任务空间。</p>
+            </div>
+            <span class="panel-tag" id="contextStatusTag">WAITING</span>
+          </div>
+          <div class="panel-body">
+            <div class="context-status" id="contextStatusCard">
+              <div>
+                <div class="context-status-title">Enterprise Context Injected</div>
+                <div class="context-status-text" id="contextStatusText">上下文待发送</div>
+              </div>
+              <div class="context-signal"></div>
+            </div>
+
+            <div class="context-form" id="contextForm">
+              <div class="field">
+                <label for="companyName">Company Name</label>
+                <input id="companyName" type="text" value="NovaTech Manufacturing Group">
+              </div>
+              <div class="field">
+                <label for="industry">Industry</label>
+                <input id="industry" type="text" value="Advanced Manufacturing">
+              </div>
+              <div class="field">
+                <label for="companySize">Company Size</label>
+                <input id="companySize" type="text" value="860 employees">
+              </div>
+              <div class="field">
+                <label for="annualRevenue">Annual Revenue</label>
+                <input id="annualRevenue" type="text" value="$128M">
+              </div>
+              <div class="field wide">
+                <label for="currentChallenges">Current Challenges</label>
+                <textarea id="currentChallenges" rows="3">Fragmented data systems, manual quality inspection, slow executive reporting, low forecast accuracy</textarea>
+              </div>
+              <div class="field wide">
+                <label for="consultingGoal">Consulting Goal</label>
+                <textarea id="consultingGoal" rows="3">Generate an AI transformation strategy report focused on cost reduction, quality intelligence, and executive decision speed.</textarea>
+              </div>
+            </div>
+
+           
+          </div>
+        </section>
+
+        <section class="glass-panel report-panel">
+          <div class="panel-header">
+            <div class="panel-title-group">
+              <span class="panel-kicker">Board Output</span>
+              <h2 class="panel-title">最终报告输出区</h2>
+              <p class="panel-desc">Final Report 阶段会在这里流式输出咨询摘要、路线图、风险控制和业务价值。</p>
+            </div>
+            <span class="panel-tag" id="reportStateTag">AWAITING FINAL STAGE</span>
+          </div>
+          <div class="panel-body">
+            <div class="report-stream" id="reportStream">
+              <div class="report-placeholder" id="reportPlaceholder">
+                最终报告尚未开始生成。<br>
+                当流程推进到 Final Report 阶段时，这里会以打字机方式流式生成 Board-Ready 输出。
+              </div>
+            </div>
+            <div class="report-final-badge" id="reportFinalBadge">BOARD-READY REPORT GENERATED</div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="control-panel">
+      <div class="control-copy">
+        <strong>AstraConsult Agentic Intelligence / Demo Control</strong>
+        先发送企业上下文，再逐阶段推进工作流。每个阶段运行中会锁定下一步，待所有小节点完成后自动解锁。
+      </div>
+      <div class="control-buttons">
+        <button class="btn-primary" id="sendContextBtn">发送 Enterprise Context</button>
+        <button class="btn-gold" id="nextStageBtn" disabled>Next Stage</button>
+        <button class="btn-secondary" id="resetDemoBtn">Reset Demo</button>
+        <button class="btn-ghost" id="fullscreenBtn">Fullscreen</button>
+      </div>
+    </section>
+  </div>
+
+    <script type="module" src="./scripts/app.js"></script>
+</body>
+</html>

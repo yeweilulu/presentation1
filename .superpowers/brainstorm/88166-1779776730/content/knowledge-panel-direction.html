@@ -1,0 +1,125 @@
+<h2>知识检索区 UI 方向</h2>
+<p class="subtitle">你选的是“实时检索面板”方向。下面只比较信息主次，不纠结像素细节。选一个你更想落地的版本。</p>
+
+<div class="cards" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+  <div class="card" data-choice="A" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#081120;padding:18px;">
+      <div style="border:1px solid rgba(88,210,255,.18);border-radius:20px;padding:18px;background:linear-gradient(180deg, rgba(16,28,49,.96), rgba(7,14,28,.96));min-height:420px;display:flex;flex-direction:column;gap:14px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
+          <div>
+            <div class="label">Retrieval Surface</div>
+            <div style="font-size:28px;font-weight:800;margin-top:6px;">知识检索区</div>
+            <div style="color:#98a8c7;margin-top:8px;max-width:360px;line-height:1.5;">像实时检索控制台，重点突出 hit stream、source status、active tags。</div>
+          </div>
+          <div style="padding:10px 16px;border-radius:999px;border:1px solid rgba(246,196,106,.28);color:#f6c46a;font-size:12px;letter-spacing:.18em;">ACTIVE</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1.35fr .95fr;gap:12px;flex:1;">
+          <div style="border:1px solid rgba(88,210,255,.14);border-radius:18px;padding:14px;background:rgba(8,15,28,.72);display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <strong style="font-size:15px;">Live Retrieval Feed</strong>
+              <span style="color:#8fd7ff;font-size:11px;">12 NEW HITS</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="padding:10px 12px;border-radius:14px;background:rgba(17,28,47,.9);border:1px solid rgba(88,210,255,.12);">
+                <div style="color:#7fd2ff;font-weight:700;">Visual Quality Inspection</div>
+                <div style="color:#96a9c8;font-size:12px;margin-top:4px;">命中制造业视觉质检案例，ROI 回收期 6-9 个月。</div>
+              </div>
+              <div style="padding:10px 12px;border-radius:14px;background:rgba(17,28,47,.9);border:1px solid rgba(88,210,255,.12);">
+                <div style="color:#7fd2ff;font-weight:700;">Executive Cockpit</div>
+                <div style="color:#96a9c8;font-size:12px;margin-top:4px;">命中经营驾驶舱模板，适配管理层日报提速。</div>
+              </div>
+              <div style="padding:10px 12px;border-radius:14px;background:rgba(17,28,47,.9);border:1px solid rgba(88,210,255,.12);">
+                <div style="color:#7fd2ff;font-weight:700;">Data Governance</div>
+                <div style="color:#96a9c8;font-size:12px;margin-top:4px;">命中模型治理与数据责任边界参考清单。</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="border:1px solid rgba(88,210,255,.14);border-radius:18px;padding:14px;background:rgba(8,15,28,.72);">
+              <strong style="font-size:15px;">Source Status</strong>
+              <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px;">
+                <div style="padding:10px;border-radius:14px;background:rgba(17,28,47,.9);">KB<br><span style="font-size:12px;color:#98a8c7;">online</span></div>
+                <div style="padding:10px;border-radius:14px;background:rgba(17,28,47,.9);">Cases<br><span style="font-size:12px;color:#98a8c7;">matched</span></div>
+                <div style="padding:10px;border-radius:14px;background:rgba(17,28,47,.9);">Benchmarks<br><span style="font-size:12px;color:#98a8c7;">syncing</span></div>
+                <div style="padding:10px;border-radius:14px;background:rgba(17,28,47,.9);">Governance<br><span style="font-size:12px;color:#98a8c7;">ready</span></div>
+              </div>
+            </div>
+            <div style="border:1px solid rgba(88,210,255,.14);border-radius:18px;padding:14px;background:rgba(8,15,28,.72);">
+              <strong style="font-size:15px;">Active Tags</strong>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;">
+                <span style="padding:6px 10px;border-radius:999px;border:1px solid rgba(88,210,255,.18);">ROI</span>
+                <span style="padding:6px 10px;border-radius:999px;border:1px solid rgba(88,210,255,.18);">Quality</span>
+                <span style="padding:6px 10px;border-radius:999px;border:1px solid rgba(88,210,255,.18);">Governance</span>
+                <span style="padding:6px 10px;border-radius:999px;border:1px solid rgba(88,210,255,.18);">Cockpit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A. 命中流主导</h3>
+      <p>把最有“动感”的 hit stream 放大，source status 和标签退到右侧做辅助。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="B" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#081120;padding:18px;">
+      <div style="border:1px solid rgba(88,210,255,.18);border-radius:20px;padding:18px;background:linear-gradient(180deg, rgba(16,28,49,.96), rgba(7,14,28,.96));min-height:420px;display:flex;flex-direction:column;gap:14px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
+          <div>
+            <div class="label">Retrieval Surface</div>
+            <div style="font-size:28px;font-weight:800;margin-top:6px;">知识检索区</div>
+            <div style="color:#98a8c7;margin-top:8px;max-width:360px;line-height:1.5;">像状态中枢，先看到 source readiness、活跃命中数，再看命中流。</div>
+          </div>
+          <div style="padding:10px 16px;border-radius:999px;border:1px solid rgba(246,196,106,.28);color:#f6c46a;font-size:12px;letter-spacing:.18em;">ACTIVE</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;">
+          <div style="padding:12px;border-radius:16px;background:rgba(17,28,47,.9);border:1px solid rgba(88,210,255,.12);"><div style="font-size:11px;color:#98a8c7;">SOURCES</div><div style="font-size:24px;font-weight:800;margin-top:6px;">5</div></div>
+          <div style="padding:12px;border-radius:16px;background:rgba(17,28,47,.9);border:1px solid rgba(88,210,255,.12);"><div style="font-size:11px;color:#98a8c7;">NEW HITS</div><div style="font-size:24px;font-weight:800;margin-top:6px;">12</div></div>
+          <div style="padding:12px;border-radius:16px;background:rgba(17,28,47,.9);border:1px solid rgba(88,210,255,.12);"><div style="font-size:11px;color:#98a8c7;">MATCH SCORE</div><div style="font-size:24px;font-weight:800;margin-top:6px;">91%</div></div>
+          <div style="padding:12px;border-radius:16px;background:rgba(17,28,47,.9);border:1px solid rgba(88,210,255,.12);"><div style="font-size:11px;color:#98a8c7;">STATE</div><div style="font-size:24px;font-weight:800;margin-top:6px;">LIVE</div></div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;flex:1;">
+          <div style="border:1px solid rgba(88,210,255,.14);border-radius:18px;padding:14px;background:rgba(8,15,28,.72);display:flex;flex-direction:column;gap:8px;">
+            <strong style="font-size:15px;">Source Grid</strong>
+            <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;">
+              <div style="padding:10px;border-radius:14px;background:rgba(17,28,47,.9);">Knowledge Base</div>
+              <div style="padding:10px;border-radius:14px;background:rgba(17,28,47,.9);">Industry Benchmarks</div>
+              <div style="padding:10px;border-radius:14px;background:rgba(17,28,47,.9);">Case Studies</div>
+              <div style="padding:10px;border-radius:14px;background:rgba(17,28,47,.9);">Governance</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;">
+              <span style="padding:6px 10px;border-radius:999px;border:1px solid rgba(88,210,255,.18);">Visual AI</span>
+              <span style="padding:6px 10px;border-radius:999px;border:1px solid rgba(88,210,255,.18);">ROI</span>
+              <span style="padding:6px 10px;border-radius:999px;border:1px solid rgba(88,210,255,.18);">Board</span>
+            </div>
+          </div>
+
+          <div style="border:1px solid rgba(88,210,255,.14);border-radius:18px;padding:14px;background:rgba(8,15,28,.72);display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <strong style="font-size:15px;">Retrieval Feed</strong>
+              <span style="color:#8fd7ff;font-size:11px;">LATEST</span>
+            </div>
+            <div style="padding:10px 12px;border-radius:14px;background:rgba(17,28,47,.9);border:1px solid rgba(88,210,255,.12);">
+              <div style="color:#7fd2ff;font-weight:700;">Quality Intelligence</div>
+              <div style="color:#96a9c8;font-size:12px;margin-top:4px;">命中同规模制造企业返工率下降案例。</div>
+            </div>
+            <div style="padding:10px 12px;border-radius:14px;background:rgba(17,28,47,.9);border:1px solid rgba(88,210,255,.12);">
+              <div style="color:#7fd2ff;font-weight:700;">Executive Reporting</div>
+              <div style="color:#96a9c8;font-size:12px;margin-top:4px;">命中经营驾驶舱压缩日报生成时长案例。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B. 状态面板主导</h3>
+      <p>先看统计和 source readiness，再用较短的 feed 展示实时命中。</p>
+    </div>
+  </div>
+</div>
